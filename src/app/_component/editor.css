@@ -1,0 +1,25 @@
+.fill-area {
+  display: table;
+  z-index: -1;
+  position: absolute;
+  top: -320000px;
+  left: -320000px;
+  width: 640000px;
+  height: 640000px;
+}
+
+.background {
+  --bg-base-color: #333333;
+  --bg-border-color: #3a3a3a;
+
+  background-color: var(--bg-base-color);
+  opacity: 1;
+  background-image: linear-gradient(var(--bg-border-color) 1.6px, transparent 1.6px),
+    linear-gradient(90deg, var(--bg-border-color) 1.6px, var(--bg-base-color) 1.6px);
+  background-size:
+    32px 32px,
+    32px 32px;
+  background-position:
+    -1.6px -1.6px,
+    -1.6px -1.6px;
+}
