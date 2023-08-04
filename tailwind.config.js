@@ -8,6 +8,7 @@ module.exports = {
       },
       data: {
         selected: 'selected="true"',
+        active: 'state="active"',
       },
     },
   },

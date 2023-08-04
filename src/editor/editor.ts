@@ -15,7 +15,7 @@ import { structures } from "rete-structures"
 import * as ContextMenuComponents from "./ui/context-menu"
 import { ConnProps, NodeProps } from "./type"
 import { ApiCall } from "./nodes/api-call"
-import ApiCallNodeComponent from "./ui/api-call"
+import ApiCallNodeComponent from "./ui/api-call/ApiCall"
 import { CustomNodeComponent } from "./ui/custom-node"
 import SocketComponent from "./ui/socket"
 import ConnectionComponent from "./ui/connection"
@@ -122,13 +122,12 @@ export async function createEditor(container: HTMLElement) {
       .map((n) => n.id)
 
     // YMLファイルへの変換をかませる
+    // const nodeTree = { id: root, children: [] }
 
-    const nodeTree = { id: root, children: [] }
-
-    while (0 < unfoldIds.length) {
-      const id = unfoldIds.pop()!
-      const node = editor.getNode(id)
-    }
+    // while (0 < unfoldIds.length) {
+    //   const id = unfoldIds.pop()!
+    //   const node = editor.getNode(id)
+    // }
   }
 
   editor.addPipe((context) => {
@@ -202,16 +201,6 @@ export async function createEditor(container: HTMLElement) {
     body: {},
   })
   await editor.addNode(apiCall2)
-
-  // const a = new ClassicPreset.Node("A")
-  // a.addControl("a", new ClassicPreset.InputControl("text", { initial: "a" }))
-  // a.addOutput("a", new ClassicPreset.Output(socket))
-  // await editor.addNode(a)
-
-  // const b = new ClassicPreset.Node("B")
-  // b.addControl("b", new ClassicPreset.InputControl("text", { initial: "b" }))
-  // b.addInput("b", new ClassicPreset.Input(socket))
-  // await editor.addNode(b)
 
   await editor.addConnection(new ClassicPreset.Connection(apiCall1, "success", apiCall2, "input"))
 

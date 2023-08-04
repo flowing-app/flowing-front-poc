@@ -23,11 +23,11 @@ export class ApiCall extends ClassicPreset.Node<
   {}
 > {
   public width = 300
-  public height = 180
+  public height = 260
 
   constructor(private apiModel: ApiCallModel) {
     super("API Call")
-    this.addInput("input", new ClassicPreset.Input(new Socket(), "Input"))
+    this.addInput("input", new ClassicPreset.Input(new Socket(), "Send"))
     this.addOutput("success", new ClassicPreset.Output(new Socket(), "Success"))
     this.addOutput("failure", new ClassicPreset.Output(new Socket(), "Failure"))
   }
