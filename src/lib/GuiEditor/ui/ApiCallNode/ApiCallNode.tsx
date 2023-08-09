@@ -7,6 +7,7 @@ import { BlockData } from "@/lib/GuiEditor/type"
 import { HTTP_METHODS_COLORS } from "@/utils/httpMethod"
 import { useBodyEditState } from "@/store/bodyEdit"
 import { useEditorStore } from "@/store"
+import InlineEditor from "@/app/_component/InlineEditor"
 
 import SectionAccordion from "./SectionAccordion"
 
@@ -62,7 +63,18 @@ const ApiCallNode = ({ id, selected, data }: NodeProps<BlockData>) => {
             </div>
           </div>
         </div>
-        <div className="m-4">
+        <div className="p-2 px-3 text-stone-400">
+          <TextareaAutosize
+            className="bg-transparent focus:outline-none resize-none w-full"
+            value={data.input.summary}
+            onChange={(e) => {
+              updateNodeData(id, {
+                input: { ...data.input, summary: e.target.value },
+              })
+            }}
+          />
+        </div>
+        <div className="m-4 mt-0">
           <button onClick={() => update(id)}>
             <div className="pl-1 pr-2 py-1 leading-none text-white/80 bg-stone-600 rounded flex items-center text-sm gap-x-2 hover:bg-stone-500 transition border border-stone-500">
               <FiEdit size={12} />
@@ -71,17 +83,15 @@ const ApiCallNode = ({ id, selected, data }: NodeProps<BlockData>) => {
           </button>
         </div>
         <div className="w-full flex flex-col gap-y-1">
-          <SectionAccordion title="バリデーション" badge="VALID" initOpen>
-            <div className="bg-[#333333]">
-              <TextareaAutosize
+          <SectionAccordion title="テスト" badge="VALID" initOpen>
+            <div className="p-2 bg-[#1E1E1E]">
+              <InlineEditor
                 value={data.input.test}
-                onChange={(e) => {
+                onChange={(value) => {
                   updateNodeData(id, {
-                    input: { ...data.input, test: e.target.value },
+                    input: { ...data.input, test: value },
                   })
                 }}
-                minRows={1}
-                className="bg-opacity-0 w-full text-sm bg-[#333333] focus:outline-none p-2 font-mono resize-none"
               />
             </div>
           </SectionAccordion>

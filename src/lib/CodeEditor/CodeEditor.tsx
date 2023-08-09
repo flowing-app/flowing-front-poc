@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import MonacoEditor from "@monaco-editor/react"
 
 type CodeEditorProps = { value: string; onChange: (value: string) => void; language: string }
@@ -28,4 +28,4 @@ const CodeEditor = ({
   )
 }
 
-export default CodeEditor
+export default memo(CodeEditor)

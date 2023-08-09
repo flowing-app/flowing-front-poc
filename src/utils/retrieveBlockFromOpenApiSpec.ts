@@ -32,6 +32,7 @@ export const retrieveBlockFromOpenApiSpec = async (
           method,
           input: {
             body,
+            summary: "",
             test: "true",
             if: "true",
             loop: {

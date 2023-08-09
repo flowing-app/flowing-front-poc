@@ -64,11 +64,6 @@ export const useEditorStore = create<RFState>((set, get) => ({
   },
   updateNodeData: (id: string, data: Partial<BlockData>) => {
     set(({ nodes }) => {
-      console.log(
-        id,
-        data,
-        nodes.map((node) => (node.id === id ? { ...node, data: { ...node.data, ...data } } : node)),
-      )
       return {
         nodes: nodes.map((node) =>
           node.id === id ? { ...node, data: { ...node.data, ...data } } : node,

@@ -7,3 +7,8 @@
 .react-flow__edge.selected > .react-flow__edge-path {
   @apply stroke-red-300;
 }
+
+.step-highlight {
+  color: #d38cff !important;
+  font-weight: bold !important;
+}

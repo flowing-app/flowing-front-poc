@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { memo, useEffect, useState } from "react"
 import * as Tabs from "@radix-ui/react-tabs"
 import { FiX } from "react-icons/fi"
 import { Node } from "reactflow"
@@ -72,4 +72,4 @@ const CodeEditorTab = ({ onOpenChange, openApi, scenario }: CodeEditorTabProps) 
   )
 }
 
-export default CodeEditorTab
+export default memo(CodeEditorTab)

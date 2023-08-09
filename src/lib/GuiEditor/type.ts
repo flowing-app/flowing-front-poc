@@ -19,9 +19,10 @@ export type BlockData = {
   method: HttpMethod
   // summary?: string
   // operationId?: string
-} & Omit<OpenAPIV3_1.OperationObject, "method"> & {
+} & Omit<OpenAPIV3_1.OperationObject, "method" | "id"> & {
     input: {
       test: string
+      summary: string
       body: Json
       if: string
       loop: Loop
